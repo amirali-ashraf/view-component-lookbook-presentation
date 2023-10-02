@@ -9,5 +9,4 @@ class GeneralComponents::ButtonComponent < ViewComponent::Base
   def disabled?
     @disabled
   end
-
 end

@@ -3,10 +3,15 @@
 require "test_helper"
 
 class GeneralComponents::ButtonComponentTest < ViewComponent::TestCase
-  def test_component_renders_something_useful
-    # assert_equal(
-    #   %(<span>Hello, components!</span>),
-    #   render_inline(GeneralComponents::ButtonComponent.new(message: "Hello, components!")).css("span").to_html
-    # )
+  def test_renders_button_with_correct_text
+    render_inline(GeneralComponents::ButtonComponent.new(text: 'Click Me', disabled: false))
+
+    assert_selector 'button', text: 'Click Me'
+  end
+
+  def test_renders_disabled_button_when_disabled_is_true
+    render_inline(GeneralComponents::ButtonComponent.new(text: 'Click Me', disabled: true))
+
+    assert_selector 'button.cursor-not-allowed[disabled]'
   end
 end

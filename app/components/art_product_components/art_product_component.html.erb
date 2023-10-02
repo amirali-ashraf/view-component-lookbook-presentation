@@ -1,0 +1,14 @@
+
+<%= render GeneralComponents::CardComponent.new(image_url: @image_url) do |component| %>
+    <% component.with_header { @title } %>
+    <% component.with_body { @description } %>
+    <%
+        component.with_buttons(
+            [
+                {text: "Add to cart", disabled: false},
+                {text: "Add to wishlist", disabled: false},
+                {text: "Details", disabled: false},
+            ]
+        )
+    %>
+<% end %>
